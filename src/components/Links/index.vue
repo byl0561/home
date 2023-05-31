@@ -4,7 +4,7 @@
       <Icon size="20">
         <Link />
       </Icon>
-      <span class="title">网站列表</span>
+      <span class="title">星球导航</span>
     </div>
     <el-row class="link-all" :gutter="20">
       <el-col
@@ -35,43 +35,43 @@ import {
   Blog,
   CompactDisc,
   Cloud,
-  Compass,
+  Road,
   Book,
-  Fire,
+  PhotoVideo,
 } from "@vicons/fa";
 
 // 网站链接数据
 // 建议不要超出6个，若需要超出请自行调整样式
 let linksData = [
   {
+    icon: Road,
+    name: "履历",
+    link: "https://cv.lavaplanets.com/",
+  },
+  {
     icon: Blog,
     name: "博客",
-    link: "https://blog.imsyy.top/",
+    link: "https://blog.lavaplanets.com/",
   },
   {
     icon: Cloud,
-    name: "网盘",
-    link: "https://pan.imsyy.top/",
+    name: "NAS",
+    link: "https://nas.lavaplanets.com/",
   },
   {
     icon: CompactDisc,
-    name: "音乐",
-    link: "https://music.imsyy.top/",
-  },
-  {
-    icon: Compass,
-    name: "起始页",
-    link: "https://nav.imsyy.top/",
+    name: "影音",
+    link: "https://media.lavaplanets.com/",
   },
   {
     icon: Book,
-    name: "网址集",
-    link: "https://web.imsyy.top/",
+    name: "书库",
+    link: "https://book.lavaplanets.com/",
   },
   {
-    icon: Fire,
-    name: "今日热榜",
-    link: "https://hot.imsyy.top/",
+    icon: PhotoVideo,
+    name: "图床",
+    link: "https://image.lavaplanets.com/",
   },
 ];
 

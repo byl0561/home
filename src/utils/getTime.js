@@ -85,6 +85,7 @@ export const getTimeCapsule = () => {
 // 欢迎提示
 export const helloInit = () => {
   const hour = new Date().getHours();
+  let mainKey = import.meta.env.VITE_SITE_NAME;
   let hello = null;
   if (hour < 6) {
     hello = "凌晨好";
@@ -105,7 +106,7 @@ export const helloInit = () => {
   }
   ElMessage({
     dangerouslyUseHTMLString: true,
-    message: `<strong>${hello}</strong> 欢迎来到我的主页`,
+    message: `<strong>${hello}</strong> 欢迎来到 ` + mainKey,
   });
 };
 
