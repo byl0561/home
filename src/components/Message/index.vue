@@ -10,7 +10,7 @@
       </div>
     </div>
     <!-- 简介 -->
-    <div class="description cards" @click="changeBox">
+    <div class="description cards">
       <div class="content">
         <Icon size="16">
           <QuoteLeft />
@@ -46,35 +46,35 @@ let descriptionText = reactive({
   text: import.meta.env.VITE_DESC_TEXT,
 });
 
-// 切换右侧功能区
-const changeBox = () => {
-  if (store.getInnerWidth >= 990) {
-    store.boxOpenState = !store.boxOpenState;
-  } else {
-    ElMessage({
-      message: "当前页面宽度不足以开启盒子",
-      grouping: true,
-      icon: h(Error, {
-        theme: "filled",
-        fill: "#efefef",
-      }),
-    });
-  }
-};
+// // 切换右侧功能区
+// const changeBox = () => {
+//   if (store.getInnerWidth >= 990) {
+//     store.boxOpenState = !store.boxOpenState;
+//   } else {
+//     ElMessage({
+//       message: "当前页面宽度不足以开启盒子",
+//       grouping: true,
+//       icon: h(Error, {
+//         theme: "filled",
+//         fill: "#efefef",
+//       }),
+//     });
+//   }
+// };
 
 // 监听状态变化
-watch(
-  () => store.boxOpenState,
-  (value) => {
-    if (value) {
-      descriptionText.hello = import.meta.env.VITE_DESC_HELLO_OTHER;
-      descriptionText.text = import.meta.env.VITE_DESC_TEXT_OTHER;
-    } else {
-      descriptionText.hello = import.meta.env.VITE_DESC_HELLO;
-      descriptionText.text = import.meta.env.VITE_DESC_TEXT;
-    }
-  }
-);
+// watch(
+//   () => store.boxOpenState,
+//   (value) => {
+//     if (value) {
+//       descriptionText.hello = import.meta.env.VITE_DESC_HELLO_OTHER;
+//       descriptionText.text = import.meta.env.VITE_DESC_TEXT_OTHER;
+//     } else {
+//       descriptionText.hello = import.meta.env.VITE_DESC_HELLO;
+//       descriptionText.text = import.meta.env.VITE_DESC_TEXT;
+//     }
+//   }
+// );
 </script>
 
 <style lang="scss" scoped>

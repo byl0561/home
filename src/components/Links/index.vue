@@ -15,7 +15,7 @@
       >
         <div
           class="item cards"
-          :style="index < 3 ? 'margin-bottom: 20px' : null"
+          :style="'margin-bottom: 20px'"
         >
           <Icon size="26">
             <component :is="item.icon" />
@@ -38,6 +38,7 @@ import {
   Road,
   Book,
   PhotoVideo,
+  Comments,
 } from "@vicons/fa";
 
 // 网站链接数据
@@ -72,6 +73,11 @@ let linksData = [
     icon: PhotoVideo,
     name: "图床",
     link: "https://image.lavaplanets.com/",
+  },
+  {
+    icon: Comments,
+    name: "GPT",
+    link: "https://chatgpt.lavaplanets.com/",
   },
 ];
 
