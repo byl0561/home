@@ -1,25 +1,13 @@
 <template>
   <footer>
-    <div class="power" v-show="!store.playerState">
+    <div class="power" v-show=true>
       <span>Copyright&nbsp;&copy;&nbsp;{{ fullYear }} Lava
       </span>
-    </div>
-    <div class="lrc" v-show="store.playerState">
-      <music-one theme="filled" size="18" fill="#efefef" />
-      <span class="lrc-text">
-        {{ store.getPlayerLrc ? store.getPlayerLrc : "这句没有歌词" }}
-      </span>
-      <music-one theme="filled" size="18" fill="#efefef" />
     </div>
   </footer>
 </template>
 
 <script setup>
-import { MusicOne } from "@icon-park/vue-next";
-import { mainStore } from "@/store";
-import config from "@/../package.json";
-const store = mainStore();
-
 let fullYear = new Date().getFullYear();
 </script>
 

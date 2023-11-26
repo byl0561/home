@@ -33,7 +33,9 @@ import { Icon } from "@vicons/utils";
 import {
   Link,
   Blog,
-  CompactDisc,
+  Toolbox,
+  Video,
+  Music,
   Cloud,
   Road,
   Book,
@@ -46,7 +48,7 @@ import {
 let linksData = [
   {
     icon: Road,
-    name: "履历",
+    name: "简历",
     link: "https://cv.lavaplanets.com/",
   },
   {
@@ -55,14 +57,24 @@ let linksData = [
     link: "https://blog.lavaplanets.com/",
   },
   {
+    icon: Toolbox,
+    name: "工具箱",
+    link: "https://www.fly63.com/tool/home.html",
+  },
+  {
     icon: Cloud,
     name: "NAS",
     link: "https://nas.lavaplanets.com/",
   },
   {
-    icon: CompactDisc,
-    name: "影音",
+    icon: Video,
+    name: "影视",
     link: "https://media.lavaplanets.com/",
+  },
+  {
+    icon: Music,
+    name: "音乐",
+    link: "https://music.lavaplanets.com/",
   },
   {
     icon: Book,

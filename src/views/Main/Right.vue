@@ -5,8 +5,6 @@
       <span class="bg">{{ siteUrl[0] }}</span>
       <span class="sm">.{{ siteUrl[1] }}</span>
     </div>
-    <!-- 功能区 -->
-    <Func />
     <!-- 网站链接 -->
     <Link />
   </div>

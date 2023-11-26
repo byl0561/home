@@ -1,16 +1,7 @@
 <template>
   <div class="cover">
     <img class="bg" :src="bgUrl" alt="cover" />
-    <div :class="store.backgroundShow ? 'gray sm' : 'gray'" />
-    <transition name="el-fade-in-linear">
-      <a
-        class="down"
-        :href="bgUrl"
-        target="_blank"
-        v-show="store.backgroundShow && store.coverType != '3'"
-        >下载壁纸</a
-      >
-    </transition>
+    <div class="gray" />
   </div>
 </template>
 

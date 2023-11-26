@@ -1,10 +1,8 @@
 {
   "name": "home",
-  "author": "imsyy",
-  "github": "https://github.com/imsyy/home",
-  "home": "https://imsyy.top",
+  "author": "lava",
   "private": true,
-  "version": "4.0.3",
+  "version": "4.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite --host",
@@ -31,7 +29,7 @@
     "sass": "^1.55.0",
     "unplugin-auto-import": "^0.11.2",
     "unplugin-vue-components": "^0.22.8",
-    "vite": "^3.1.0",
+    "vite": "^3.2.7",
     "vite-plugin-html": "^3.2.0",
     "vite-plugin-pwa": "^0.14.1"
   }

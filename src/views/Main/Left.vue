@@ -1,7 +1,6 @@
 <template>
   <div :class="store.mobileOpenState ? 'left hidden' : 'left'">
     <Message />
-    <SocialLinks />
   </div>
 </template>
 
