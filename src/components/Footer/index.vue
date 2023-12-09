@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <div class="power" v-show=true>
+    <div class="power">
       <span>Copyright&nbsp;&copy;&nbsp;{{ fullYear }} Lava - Based on Project: <a href="https://github.com/imsyy/home">Home</a>
       </span>
     </div>

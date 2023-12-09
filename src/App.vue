@@ -2,8 +2,8 @@
   <div class="animate">
     <Background />
     <main>
-      <div class="container" v-show=true>
-        <section class="main" v-show=true>
+      <div class="container">
+        <section class="main">
           <MainLeft />
           <MainRight v-show="!store.boxOpenState" />
         </section>
@@ -17,7 +17,7 @@
         <component :is="store.mobileOpenState ? CloseSmall : HamburgerButton" />
       </Icon>
     </main>
-    <Footer v-show=true />
+    <Footer/>
   </div>
 </template>
 <script setup>
