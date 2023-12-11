@@ -1,0 +1,47 @@
+[
+  {
+    "icon": "Road",
+    "name": "简历",
+    "link": "https://cv.lavaplanets.com/"
+  },
+  {
+    "icon": "Blog",
+    "name": "博客",
+    "link": "https://blog.lavaplanets.com/"
+  },
+  {
+    "icon": "Toolbox",
+    "name": "工具箱",
+    "link": "https://www.fly63.com/tool/home.html"
+  },
+  {
+    "icon": "Cloud",
+    "name": "NAS",
+    "link": "https://nas.lavaplanets.com/"
+  },
+  {
+    "icon": "Video",
+    "name": "影视",
+    "link": "https://media.lavaplanets.com/"
+  },
+  {
+    "icon": "Music",
+    "name": "音乐",
+    "link": "https://music.lavaplanets.com/"
+  },
+  {
+    "icon": "Book",
+    "name": "书库",
+    "link": "https://book.lavaplanets.com/"
+  },
+  {
+    "icon": "PhotoVideo",
+    "name": "图床",
+    "link": "https://image.lavaplanets.com/"
+  },
+  {
+    "icon": "Comments",
+    "name": "GPT",
+    "link": "https://chatgpt.lavaplanets.com/"
+  }
+]

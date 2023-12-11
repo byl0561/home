@@ -4,7 +4,7 @@
     <!-- Logo -->
     <div class="logo">
 <!--      <img class="logo-img" :src="siteLogo" alt="logo" />-->
-      <div class="name text-hidden">
+      <div :class="{ name: true, 'text-hidden': true, long: siteUrl[0].length >= 6 }">
         <span class="bg">{{ siteUrl[0] }}</span>
         <span class="sm">.{{ siteUrl[1] }}</span>
       </div>
@@ -28,17 +28,28 @@
 </template>
 
 <script setup>
-import { reactive } from "vue";
 import { Icon } from "@vicons/utils";
 import { QuoteLeft, QuoteRight } from "@vicons/fa";
+import { Error } from "@icon-park/vue-next";
+import { mainStore } from "@/store";
+const store = mainStore();
 
 // 主页站点logo
-let siteLogo = import.meta.env.VITE_SITE_LOGO;
+const siteLogo = import.meta.env.VITE_SITE_MAIN_LOGO;
 // 站点链接
-let siteUrl = import.meta.env.VITE_SITE_URL.split(".");
+const siteUrl = computed(() => {
+  const url = import.meta.env.VITE_SITE_URL;
+  if (!url) return "imsyy.top".split(".");
+  // 判断协议前缀
+  if (url.startsWith("http://") || url.startsWith("https://")) {
+    const urlFormat = url.replace(/^(https?:\/\/)/, "");
+    return urlFormat.split(".");
+  }
+  return url.split(".");
+});
 
 // 简介区域文字
-let descriptionText = reactive({
+const descriptionText = reactive({
   hello: import.meta.env.VITE_DESC_HELLO,
   text: import.meta.env.VITE_DESC_TEXT,
 });
@@ -50,16 +61,15 @@ let descriptionText = reactive({
     display: flex;
     flex-direction: row;
     align-items: center;
-    animation: fade;
-    -webkit-animation: fade 0.5s;
+    animation: fade 0.5s;
+    max-width: 460px;
     .logo-img {
       border-radius: 50%;
       width: 120px;
     }
     .name {
       width: 100%;
-      height: 142px;
-      margin-left: 12px;
+      padding-left: 22px;
       transform: translateY(-8px);
       font-family: "Pacifico-Regular";
 
@@ -86,14 +96,17 @@ let descriptionText = reactive({
         }
       }
     }
+
+    @media (max-width: 720px) {
+      max-width: 100%;
+    }
   }
 
   .description {
     padding: 1rem;
     margin-top: 3.5rem;
     max-width: 460px;
-    animation: fade;
-    -webkit-animation: fade 0.5s;
+    animation: fade 0.5s;
 
     .content {
       display: flex;
