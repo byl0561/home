@@ -136,7 +136,6 @@ const jumpLink = (data) => {
     }
   }
   .link-all {
-    height: 340px;
     .item {
       height: 100px;
       width: 100%;
@@ -177,9 +176,6 @@ const jumpLink = (data) => {
           margin-top: 8px;
         }
       }
-    }
-    @media (max-width: 720px) {
-      height: 280px;
     }
   }
 }
