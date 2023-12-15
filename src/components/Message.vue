@@ -3,11 +3,11 @@
   <div class="message">
     <!-- Logo -->
     <div class="logo">
-<!--      <img class="logo-img" :src="siteLogo" alt="logo" />-->
-      <div :class="{ name: true, 'text-hidden': true, long: siteUrl[0].length >= 6 }">
-        <span class="bg">{{ siteUrl[0] }}</span>
-        <span class="sm">.{{ siteUrl[1] }}</span>
-      </div>
+      <img class="logo-img" :src="siteLogo" alt="logo" />
+<!--      <div :class="{ name: true, 'text-hidden': true, long: siteUrl[0].length >= 6 }">-->
+<!--        <span class="bg">{{ siteUrl[0] }}</span>-->
+<!--        <span class="sm">.{{ siteUrl[1] }}</span>-->
+<!--      </div>-->
     </div>
     <!-- 简介 -->
     <div class="description cards">
@@ -64,41 +64,45 @@ const descriptionText = reactive({
     animation: fade 0.5s;
     max-width: 460px;
     .logo-img {
-      border-radius: 50%;
-      width: 120px;
+      //border-radius: 50%;
+      width: 350px;
     }
-    .name {
-      width: 100%;
-      padding-left: 22px;
-      transform: translateY(-8px);
-      font-family: "Pacifico-Regular";
-
-      .bg {
-        font-size: 5rem;
-      }
-
-      .sm {
-        margin-left: 6px;
-        font-size: 2rem;
-        @media (min-width: 720px) and (max-width: 789px) {
-          display: none;
-        }
-      }
-    }
+    //.name {
+    //  width: 100%;
+    //  padding-left: 22px;
+    //  transform: translateY(-8px);
+    //  font-family: "Pacifico-Regular";
+    //
+    //  .bg {
+    //    font-size: 5rem;
+    //  }
+    //
+    //  .sm {
+    //    margin-left: 6px;
+    //    font-size: 2rem;
+    //    @media (min-width: 720px) and (max-width: 789px) {
+    //      display: none;
+    //    }
+    //  }
+    //}
     @media (max-width: 768px) {
       .logo-img {
-        width: 100px;
+        width: 200px;
       }
-      .name {
-        height: 128px;
-        .bg {
-          font-size: 4.5rem;
-        }
-      }
+      //.name {
+      //  height: 128px;
+      //  .bg {
+      //    font-size: 4.5rem;
+      //  }
+      //}
     }
-
+    //
     @media (max-width: 720px) {
       max-width: 100%;
+      justify-content: center;
+      .logo-img {
+        width: 350px;
+      }
     }
   }
 
