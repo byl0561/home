@@ -1,13 +1,11 @@
 <template>
   <div class="cover">
     <img
-        v-show="store.imgLoadStatus"
         class="bg"
         alt="cover"
         :src="bgUrl"
         @load="imgLoadComplete"
         @error.once="imgLoadError"
-        @animationend="imgAnimationEnd"
     />
     <div class="gray" />
   </div>
@@ -20,7 +18,6 @@ import { Error } from "@icon-park/vue-next";
 const store = mainStore();
 const bgUrl = ref(null);
 const imgTimeout = ref(null);
-const emit = defineEmits(["loadComplete"]);
 
 // 壁纸随机数
 // 请依据文件夹内的图片个数修改 Math.random() 后面的第一个数字
@@ -47,12 +44,6 @@ const imgLoadComplete = () => {
       },
       Math.floor(Math.random() * (600 - 300 + 1)) + 300,
   );
-};
-
-// 图片动画完成
-const imgAnimationEnd = () => {
-  // 加载完成事件
-  emit("loadComplete");
 };
 
 // 图片显示失败

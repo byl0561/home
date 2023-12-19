@@ -1,10 +1,10 @@
 <template>
   <!-- 加载 -->
-  <Loading />
+  <Loading v-if="!loadStatus"/>
   <!-- 壁纸 -->
-  <Background @loadComplete="loadComplete" />
+  <Background v-show="store.imgLoadStatus"/>
   <!-- 主界面 -->
-  <Transition name="fade" mode="out-in">
+  <Transition name="fade" mode="out-in" v-show="store.logoLoadStatus">
     <main id="main" v-if="store.imgLoadStatus">
       <div class="container">
         <section class="all">
@@ -46,6 +46,9 @@ const getWidth = () => {
   store.setInnerWidth(window.innerWidth);
 };
 
+// 加载状态
+const loadStatus = computed(() => store.imgLoadStatus && store.logoLoadStatus)
+
 // 加载完成事件
 const loadComplete = () => {
   nextTick(() => {
@@ -55,6 +58,16 @@ const loadComplete = () => {
     checkDays();
   });
 };
+
+// 监听加载完成
+watch(
+    loadStatus,
+    (value) => {
+      if (value) {
+        loadComplete()
+      }
+    }
+);
 
 // 监听宽度变化
 watch(

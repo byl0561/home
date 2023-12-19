@@ -1,5 +1,5 @@
 <template>
-  <div id="loader-wrapper" :class="store.imgLoadStatus && store.logoLoadStatus ? 'loaded' : null">
+  <div id="loader-wrapper">
     <div class="loader">
       <div class="loader-circle" />
       <div class="loader-text">

@@ -66,14 +66,19 @@ const logoLoadComplete = () => {
     }
     @media (max-width: 768px) {
       .logo-img {
-        width: 200px;
+        width: 300px;
       }
     }
     @media (max-width: 720px) {
       max-width: 100%;
       justify-content: center;
       .logo-img {
-        width: 350px;
+        width: 300px;
+      }
+    }
+    @media (max-width: 340px) {
+      .logo-img {
+        width: 100%;
       }
     }
   }
@@ -112,21 +117,6 @@ const logoLoadComplete = () => {
   @media (max-width: 390px) {
     .logo {
       flex-direction: column;
-      .logo-img {
-        display: none;
-      }
-      .name {
-        margin-left: 0;
-        height: auto;
-        transform: none;
-        text-align: center;
-        .bg {
-          font-size: 3.5rem;
-        }
-        .sm {
-          font-size: 1.4rem;
-        }
-      }
     }
     .description {
       margin-top: 2.5rem;
