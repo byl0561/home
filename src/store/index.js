@@ -4,6 +4,7 @@ export const mainStore = defineStore("main", {
     state: () => {
         return {
             imgLoadStatus: false, // 壁纸加载状态
+            logoLoadStatus: false, // logo加载状态
             innerWidth: null, // 当前窗口宽度
             coverType: "1", // 壁纸种类
             boxOpenState: false, // 盒子开启状态
@@ -30,6 +31,10 @@ export const mainStore = defineStore("main", {
         // 更改壁纸加载状态
         setImgLoadStatus(value) {
             this.imgLoadStatus = value;
+        },
+        // 更改LOGO加载状态
+        setLogoLoadStatus(value) {
+            this.logoLoadStatus = value;
         },
     },
     persist: {
