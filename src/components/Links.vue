@@ -49,18 +49,20 @@ import {
   Toolbox,
   Video,
   Music,
-  Cloud,
-  Road,
   Book,
   PhotoVideo,
   Comments,
 } from "@vicons/fa"; // 注意使用正确的类别
+import {
+  CloudArchive20Filled
+} from "@vicons/fluent";
+import {
+  WorkspacePremiumFilled
+} from "@vicons/material"
 import { mainStore } from "@/store";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination, Mousewheel } from "swiper";
 import siteLinks from "@/assets/siteLinks.json";
-import "swiper/scss";
-import "swiper/scss/pagination";
 
 const store = mainStore();
 
@@ -81,8 +83,8 @@ const siteIcon = {
   Toolbox,
   Video,
   Music,
-  Cloud,
-  Road,
+  CloudArchive20Filled,
+  WorkspacePremiumFilled,
   Book,
   PhotoVideo,
   Comments,

@@ -1,6 +1,6 @@
 [
   {
-    "icon": "Road",
+    "icon": "WorkspacePremiumFilled",
     "name": "简历",
     "link": "https://cv.lavaplanets.com/"
   },
@@ -12,32 +12,32 @@
   {
     "icon": "Toolbox",
     "name": "工具箱",
-    "link": "https://www.fly63.com/tool/home.html"
+    "link": "https://tools.lavaplanets.com/"
   },
   {
-    "icon": "Cloud",
+    "icon": "CloudArchive20Filled",
     "name": "NAS",
     "link": "https://nas.lavaplanets.com/"
   },
   {
     "icon": "Video",
     "name": "影视",
-    "link": "https://media.lavaplanets.com/"
+    "link": "http://media.lavaplanets.com/"
   },
   {
     "icon": "Music",
     "name": "音乐",
-    "link": "https://music.lavaplanets.com/"
+    "link": "http://music.lavaplanets.com/"
   },
   {
     "icon": "Book",
     "name": "书库",
-    "link": "https://book.lavaplanets.com/"
+    "link": "http://book.lavaplanets.com/"
   },
   {
     "icon": "PhotoVideo",
     "name": "图床",
-    "link": "https://image.lavaplanets.com/"
+    "link": "http://image.lavaplanets.com/"
   },
   {
     "icon": "Comments",
