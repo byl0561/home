@@ -22,22 +22,22 @@
   {
     "icon": "Video",
     "name": "影视",
-    "link": "http://media.lavaplanets.com/"
+    "link": "https://media.lavaplanets.com/"
   },
   {
     "icon": "Music",
     "name": "音乐",
-    "link": "http://music.lavaplanets.com/"
+    "link": "https://music.lavaplanets.com/"
   },
   {
     "icon": "Book",
     "name": "书库",
-    "link": "http://book.lavaplanets.com/"
+    "link": "https://book.lavaplanets.com/"
   },
   {
     "icon": "PhotoVideo",
     "name": "图床",
-    "link": "http://image.lavaplanets.com/"
+    "link": "https://image.lavaplanets.com/"
   },
   {
     "icon": "Comments",
