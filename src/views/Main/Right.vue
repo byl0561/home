@@ -11,15 +11,22 @@
 </template>
 
 <script setup>
-import { reactive, ref, onMounted } from "vue";
 import { mainStore } from "@/store";
-import Link from "@/components/Links/index.vue";
+import Link from "@/components/Links.vue";
 const store = mainStore();
 
 // 站点链接
-let siteUrl = import.meta.env.VITE_SITE_URL.split(".");
+const siteUrl = computed(() => {
+  const url = import.meta.env.VITE_SITE_URL;
+  if (!url) return "imsyy.top".split(".");
+  // 判断协议前缀
+  if (url.startsWith("http://") || url.startsWith("https://")) {
+    const urlFormat = url.replace(/^(https?:\/\/)/, "");
+    return urlFormat.split(".");
+  }
+  return url.split(".");
+});
 </script>
-
 
 <style lang="scss" scoped>
 .right {
@@ -27,16 +34,15 @@ let siteUrl = import.meta.env.VITE_SITE_URL.split(".");
   width: 50%;
   margin-left: 0.75rem;
   .logo {
-    width: 80%;
+    width: 100%;
     font-family: "Pacifico-Regular";
     font-size: 1.75rem;
     position: fixed;
     top: 6%;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: all 0.3s;
-    animation: fade;
-    -webkit-animation: fade 0.5s;
+    left: 0;
+    text-align: center;
+    transition: transform 0.3s;
+    animation: fade 0.5s;
     &:active {
       transform: scale(0.95);
     }

@@ -1,21 +1,26 @@
-var CURSOR;
+let mainCursor;
 
 Math.lerp = (a, b, n) => (1 - n) * a + n * b;
 
 const getStyle = (el, attr) => {
     try {
-        return window.getComputedStyle ?
-            window.getComputedStyle(el)[attr] :
-            el.currentStyle[attr];
-    } catch (e) {}
-    return "";
+        return window.getComputedStyle ? window.getComputedStyle(el)[attr] : el.currentStyle[attr];
+    } catch (e) {
+        console.error(e);
+    }
+    return false;
+};
+
+const cursorInit = () => {
+    mainCursor = new Cursor();
+    return mainCursor;
 };
 
 class Cursor {
     constructor() {
         this.pos = {
             curr: null,
-            prev: null
+            prev: null,
         };
         this.pt = [];
         this.create();
@@ -37,28 +42,41 @@ class Cursor {
             document.body.append(this.cursor);
         }
 
-        var el = document.getElementsByTagName('*');
+        var el = document.getElementsByTagName("*");
         for (let i = 0; i < el.length; i++)
-            if (getStyle(el[i], "cursor") == "pointer")
-                this.pt.push(el[i].outerHTML);
+            if (getStyle(el[i], "cursor") == "pointer") this.pt.push(el[i].outerHTML);
 
         document.body.appendChild((this.scr = document.createElement("style")));
         this.scr.innerHTML = `* {cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' width='10px' height='10px'><circle cx='4' cy='4' r='4' fill='white' /></svg>") 4 4, auto !important}`;
     }
 
+    refresh() {
+        this.scr.remove();
+        this.cursor.classList.remove("active");
+        this.pos = {
+            curr: null,
+            prev: null,
+        };
+        this.pt = [];
+
+        this.create();
+        this.init();
+        this.render();
+    }
+
     init() {
-        document.onmousemove = e => {
-            (this.pos.curr == null) && this.move(e.clientX - 8, e.clientY - 8);
+        document.onmousemove = (e) => {
+            this.pos.curr == null && this.move(e.clientX - 8, e.clientY - 8);
             this.pos.curr = {
                 x: e.clientX - 8,
-                y: e.clientY - 8
+                y: e.clientY - 8,
             };
             this.cursor.classList.remove("hidden");
         };
-        document.onmouseenter = e => this.cursor.classList.remove("hidden");
-        document.onmouseleave = e => this.cursor.classList.add("hidden");
-        document.onmousedown = e => this.cursor.classList.add("active");
-        document.onmouseup = e => this.cursor.classList.remove("active");
+        document.onmouseenter = () => this.cursor.classList.remove("hidden");
+        document.onmouseleave = () => this.cursor.classList.add("hidden");
+        document.onmousedown = () => this.cursor.classList.add("active");
+        document.onmouseup = () => this.cursor.classList.remove("active");
     }
 
     render() {
@@ -72,9 +90,5 @@ class Cursor {
         requestAnimationFrame(() => this.render());
     }
 }
-
-const cursorInit = () => {
-    CURSOR = new Cursor();
-};
 
 export default cursorInit;

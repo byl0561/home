@@ -3,11 +3,10 @@
   <div class="message">
     <!-- Logo -->
     <div class="logo">
-<!--      <img class="logo-img" :src="siteLogo" alt="logo" />-->
-      <div class="name text-hidden">
-        <span class="bg">{{ siteUrl[0] }}</span>
-        <span class="sm">.{{ siteUrl[1] }}</span>
-      </div>
+      <img class="logo-img"
+           :src="siteLogo"
+           alt="logo"
+           @load="logoLoadComplete" />
     </div>
     <!-- 简介 -->
     <div class="description cards">
@@ -28,20 +27,30 @@
 </template>
 
 <script setup>
-import { reactive } from "vue";
 import { Icon } from "@vicons/utils";
 import { QuoteLeft, QuoteRight } from "@vicons/fa";
+import { mainStore } from "@/store";
+const store = mainStore();
+const logoTimeout = ref(null);
 
 // 主页站点logo
-let siteLogo = import.meta.env.VITE_SITE_LOGO;
-// 站点链接
-let siteUrl = import.meta.env.VITE_SITE_URL.split(".");
+const siteLogo = import.meta.env.VITE_SITE_MAIN_LOGO;
 
 // 简介区域文字
-let descriptionText = reactive({
+const descriptionText = reactive({
   hello: import.meta.env.VITE_DESC_HELLO,
   text: import.meta.env.VITE_DESC_TEXT,
 });
+
+// 图片加载完成
+const logoLoadComplete = () => {
+  logoTimeout.value = setTimeout(
+      () => {
+        store.setLogoLoadStatus(true);
+      },
+      Math.floor(Math.random() * (600 - 300 + 1)) + 300,
+  );
+};
 </script>
 
 <style lang="scss" scoped>
@@ -50,40 +59,26 @@ let descriptionText = reactive({
     display: flex;
     flex-direction: row;
     align-items: center;
-    animation: fade;
-    -webkit-animation: fade 0.5s;
+    animation: fade 0.5s;
+    max-width: 460px;
     .logo-img {
-      border-radius: 50%;
-      width: 120px;
-    }
-    .name {
-      width: 100%;
-      height: 142px;
-      margin-left: 12px;
-      transform: translateY(-8px);
-      font-family: "Pacifico-Regular";
-
-      .bg {
-        font-size: 5rem;
-      }
-
-      .sm {
-        margin-left: 6px;
-        font-size: 2rem;
-        @media (min-width: 720px) and (max-width: 789px) {
-          display: none;
-        }
-      }
+      width: 350px;
     }
     @media (max-width: 768px) {
       .logo-img {
-        width: 100px;
+        width: 300px;
       }
-      .name {
-        height: 128px;
-        .bg {
-          font-size: 4.5rem;
-        }
+    }
+    @media (max-width: 720px) {
+      max-width: 100%;
+      justify-content: center;
+      .logo-img {
+        width: 300px;
+      }
+    }
+    @media (max-width: 340px) {
+      .logo-img {
+        width: 100%;
       }
     }
   }
@@ -92,8 +87,7 @@ let descriptionText = reactive({
     padding: 1rem;
     margin-top: 3.5rem;
     max-width: 460px;
-    animation: fade;
-    -webkit-animation: fade 0.5s;
+    animation: fade 0.5s;
 
     .content {
       display: flex;
@@ -123,21 +117,6 @@ let descriptionText = reactive({
   @media (max-width: 390px) {
     .logo {
       flex-direction: column;
-      .logo-img {
-        display: none;
-      }
-      .name {
-        margin-left: 0;
-        height: auto;
-        transform: none;
-        text-align: center;
-        .bg {
-          font-size: 3.5rem;
-        }
-        .sm {
-          font-size: 1.4rem;
-        }
-      }
     }
     .description {
       margin-top: 2.5rem;
