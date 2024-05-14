@@ -55,7 +55,7 @@ pnpm build
 {
   "icon": "Blog",
   "name": "博客",
-  "link": "https://blog.imsyy.top/"
+  "link": "https://blog.lavaplanets.com/"
 },
 ```
 
