@@ -61,7 +61,7 @@ import {
 } from "@vicons/material"
 import { mainStore } from "@/store";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { Pagination, Mousewheel } from "swiper";
+import { Pagination, Mousewheel } from "swiper/modules";
 import siteLinks from "@/assets/siteLinks.json";
 
 const store = mainStore();
@@ -124,13 +124,22 @@ const jumpLink = (data) => {
     }
     .swiper-pagination {
       position: static;
-      margin-top: 4px;
+      margin-top: 12px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
       :deep(.swiper-pagination-bullet) {
         background-color: #fff;
-        width: 18px;
+        width: 20px;
         height: 4px;
+        margin: 0 4px;
         border-radius: 4px;
+        opacity: 0.2;
         transition: opacity 0.3s;
+        &.swiper-pagination-bullet-active {
+          opacity: 1;
+        }
         &:hover {
           opacity: 1;
         }

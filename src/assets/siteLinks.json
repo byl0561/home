@@ -27,7 +27,7 @@
   {
     "icon": "Music",
     "name": "音乐",
-    "link": "https://music.lavaplanets.com/"
+    "link": "https://netease-music.lavaplanets.com/"
   },
   {
     "icon": "Book",
@@ -36,7 +36,7 @@
   },
   {
     "icon": "PhotoVideo",
-    "name": "图床",
+    "name": "图片",
     "link": "https://image.lavaplanets.com/"
   },
   {

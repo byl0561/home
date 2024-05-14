@@ -14,10 +14,12 @@
         <Icon size="16">
           <QuoteLeft />
         </Icon>
-        <div class="text">
-          <p>{{ descriptionText.hello }}</p>
-          <p>{{ descriptionText.text }}</p>
-        </div>
+        <Transition name="fade" mode="out-in">
+          <div :key="descriptionText.hello + descriptionText.text" class="text">
+            <p>{{ descriptionText.hello }}</p>
+            <p>{{ descriptionText.text }}</p>
+          </div>
+        </Transition>
         <Icon size="16">
           <QuoteRight />
         </Icon>
@@ -97,6 +99,7 @@ const logoLoadComplete = () => {
         margin: 0.75rem 1rem;
         line-height: 2rem;
         margin-right: auto;
+        transition: opacity 0.2s;
 
         p {
           &:nth-of-type(1) {
