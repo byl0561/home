@@ -3,7 +3,7 @@
 基于 <a href="https://github.com/imsyy/home">無名の主页</a> 项目二次开发，精简了部分功能
 </p>
 
-![Lavaの主页](/screenshots/main.jpg)
+![Lavaの主页](/screenshots/main.png)
 
 > 主页的 Logo 字体已经过压缩，若用本站 Logo 以外的字母会变回默认字体，这里是 [完整字体](https://file.imsyy.top/font/Other/Pacifico-Regular.ttf)，若无法下载，可将字体目录下的 `Pacifico-Regular-all.ttf` 进行替换
 
