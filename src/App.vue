@@ -139,7 +139,7 @@ onBeforeUnmount(() => {
       animation: fade 0.5s;
     }
     @media (max-width: 1200px) {
-      padding: 0 2vw;
+      padding: 0 2vw 46px 2vw;
     }
   }
   .menu {
