@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import { mainStore } from "@/store";
+import { mainStore } from "@/store/index.js";
 import Message from "@/components/Message.vue";
 import SocialLinks from "@/components/SocialLinks.vue";
 const store = mainStore();

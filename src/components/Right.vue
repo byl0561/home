@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import { mainStore } from "@/store";
+import { mainStore } from "@/store/index.js";
 import Link from "@/components/Links.vue";
 const store = mainStore();
 
