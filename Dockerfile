@@ -1,11 +1,11 @@
 # 构建应用
 FROM node:18 AS builder
 WORKDIR /app
+RUN npm config set registry http://registry.npm.taobao.org
 COPY package*.json ./
 RUN npm install
 COPY . .
 RUN [ ! -e ".env" ] && cp .env.example .env || true
-RUN npm config set registry http://registry.npm.taobao.org
 RUN npm run build
 
 # 最小化镜像
