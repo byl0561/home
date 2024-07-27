@@ -80,7 +80,7 @@ const logoLoadComplete = () => {
     }
     @media (max-width: 340px) {
       .logo-img {
-        width: 100%;
+        width: 300px;
       }
     }
   }
@@ -115,14 +115,6 @@ const logoLoadComplete = () => {
     @media (max-width: 720px) {
       max-width: 100%;
       pointer-events: none;
-    }
-  }
-  @media (max-width: 390px) {
-    .logo {
-      flex-direction: column;
-    }
-    .description {
-      margin-top: 2.5rem;
     }
   }
 }

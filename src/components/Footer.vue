@@ -3,13 +3,27 @@
     <Transition name="fade" mode="out-in">
       <div class="power">
         <span>
-          Copyright&nbsp;&copy;
+          <span :class="startYear < fullYear ? 'c-hidden' : 'hidden'">Copyright&nbsp;</span>
+          &copy;
+          <span v-if="startYear < fullYear"
+                class="site-start">
+            {{ startYear }}
+            -
+          </span>
           {{ fullYear }}
-          <a :href="siteUrl">{{ siteAnthor }}</a>
-          &amp;&nbsp;Made&nbsp;by
-          <a :href="config.github" target="_blank">
-            {{ config.author }}
+          <a :href="siteUrl">{{ siteAuthor }}</a>
+          <span class="hidden">
+            &amp;&nbsp;Made&nbsp;by
+            <a :href="config.github" target="_blank">
+              {{ config.author }}
+            </a>
+          </span>
+          <span v-if="siteIcp">
+            &amp;
+            <a href="https://beian.miit.gov.cn" target="_blank">
+            {{ siteIcp }}
           </a>
+        </span>
         </span>
       </div>
     </Transition>
@@ -24,7 +38,12 @@ const store = mainStore();
 const fullYear = new Date().getFullYear();
 
 // 加载配置数据
-const siteAnthor = ref(import.meta.env.VITE_SITE_ANTHOR);
+const startYear = ref(
+    import.meta.env.VITE_SITE_START?.length >= 4 ?
+        import.meta.env.VITE_SITE_START.substring(0, 4) : null
+);
+const siteIcp = ref(import.meta.env.VITE_SITE_ICP);
+const siteAuthor = ref(import.meta.env.VITE_SITE_AUTHOR);
 const siteUrl = computed(() => {
   const url = import.meta.env.VITE_SITE_URL;
   if (!url) return "https://www.imsyy.top";
@@ -47,6 +66,8 @@ const siteUrl = computed(() => {
   text-align: center;
   z-index: 0;
   font-size: 14px;
+  word-break: keep-all;
+  white-space: nowrap;
   .power {
     animation: fade 0.3s;
   }
@@ -82,9 +103,14 @@ const siteUrl = computed(() => {
     transition: opacity 0.15s ease-in-out;
   }
   @media (max-width: 720px) {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     &.blur {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
+    }
+  }
+  @media (max-width: 560px) {
+    .c-hidden {
+      display: none;
     }
   }
   @media (max-width: 480px) {

@@ -22,11 +22,12 @@
       </Icon>
       <!-- 页脚 -->
       <Transition name="fade" mode="out-in">
-        <Footer/>
+        <Footer class="f-ter" />
       </Transition>
     </main>
   </Transition>
 </template>
+
 <script setup>
 import { helloInit, checkDays } from "@/utils/getTime.js";
 import { HamburgerButton, CloseSmall } from "@icon-park/vue-next";
@@ -73,7 +74,7 @@ watch(
 watch(
     () => store.innerWidth,
     (value) => {
-      if (value < 990) {
+      if (value < 721) {
         store.boxOpenState = false;
       }
     },
@@ -118,6 +119,7 @@ onBeforeUnmount(() => {
     width: 100%;
     height: 100vh;
     margin: 0 auto;
+    padding: 0 0.5vw;
     .all {
       width: 100%;
       height: 100%;
@@ -143,7 +145,7 @@ onBeforeUnmount(() => {
     }
   }
   .menu {
-    position: fixed;
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -164,6 +166,66 @@ onBeforeUnmount(() => {
     }
     @media (min-width: 721px) {
       display: none;
+    }
+  }
+  @media (max-height: 720px) {
+    overflow-y: auto;
+    overflow-x: hidden;
+    .container {
+      height: 721px;
+      .more {
+        height: 721px;
+        width: calc(100% + 6px);
+      }
+      @media (min-width: 391px) {
+        // w 1201px ~ max
+        padding-left: 0.7vw;
+        padding-right: 0.25vw;
+        @media (max-width: 1200px) { // w 1101px ~ 1280px
+          padding-left: 2.3vw;
+          padding-right: 1.75vw;
+        }
+        @media (max-width: 1100px) { // w 993px ~ 1100px
+          padding-left: 2vw;
+          padding-right: calc(2vw - 6px);
+        }
+        @media (max-width: 992px) { // w 901px ~ 992px
+          padding-left: 2.3vw;
+          padding-right: 1.7vw;
+        }
+        @media (max-width: 900px) { // w 391px ~ 900px
+          padding-left: 2vw;
+          padding-right: calc(2vw - 6px);
+        }
+      }
+    }
+    .menu {
+      top: 605.64px; // 721px * 0.84
+      left: 170.5px; // 391 * 0.5 - 25px
+      @media (min-width: 391px) {
+        left: calc(50% - 25px);
+      }
+    }
+    .f-ter {
+      top: 675px; // 721px - 46px
+      @media (min-width: 391px) {
+        padding-left: 6px;
+      }
+    }
+  }
+  @media (max-width: 390px) {
+    overflow-x: auto;
+    .container {
+      width: 391px;
+    }
+    .menu {
+      left: 167.5px; // 391px * 0.5 - 28px
+    }
+    .f-ter {
+      width: 391px;
+    }
+    @media (min-height: 721px) {
+      overflow-y: hidden;
     }
   }
 }
