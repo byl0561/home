@@ -40,7 +40,7 @@ const fullYear = new Date().getFullYear();
 // 加载配置数据
 const startYear = ref(
     import.meta.env.VITE_SITE_START?.length >= 4 ?
-        import.meta.env.VITE_SITE_START.substring(0, 4) : null
+    import.meta.env.VITE_SITE_START.substring(0, 4) : null
 );
 const siteIcp = ref(import.meta.env.VITE_SITE_ICP);
 const siteAuthor = ref(import.meta.env.VITE_SITE_AUTHOR);
