@@ -1,6 +1,13 @@
+import { isEqual } from "lodash-es";
+
 let mainCursor;
 
-Math.lerp = (a, b, n) => (1 - n) * a + n * b;
+const lerp = (a, b, n) => {
+    if (Math.round(a) === b) {
+        return b;
+    }
+    return (1 - n) * a + n * b;
+};
 
 const getStyle = (el, attr) => {
     try {
@@ -72,6 +79,7 @@ class Cursor {
                 y: e.clientY - 8,
             };
             this.cursor.classList.remove("hidden");
+            this.render();
         };
         document.onmouseenter = () => this.cursor.classList.remove("hidden");
         document.onmouseleave = () => this.cursor.classList.add("hidden");
@@ -81,13 +89,15 @@ class Cursor {
 
     render() {
         if (this.pos.prev) {
-            this.pos.prev.x = Math.lerp(this.pos.prev.x, this.pos.curr.x, 0.35);
-            this.pos.prev.y = Math.lerp(this.pos.prev.y, this.pos.curr.y, 0.35);
+            this.pos.prev.x = lerp(this.pos.prev.x, this.pos.curr.x, 0.35);
+            this.pos.prev.y = lerp(this.pos.prev.y, this.pos.curr.y, 0.35);
             this.move(this.pos.prev.x, this.pos.prev.y);
         } else {
             this.pos.prev = this.pos.curr;
         }
-        requestAnimationFrame(() => this.render());
+        if (!isEqual(this.pos.curr, this.pos.prev)) {
+            requestAnimationFrame(() => this.render());
+        }
     }
 }
 

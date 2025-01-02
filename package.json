@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "element-plus": "^2.7.7",
+    "lodash-es": "^4.17.21",
     "pinia": "^2.1.7",
     "pinia-plugin-persistedstate": "^3.2.1",
     "swiper": "^11.1.1",
